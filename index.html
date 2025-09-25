@@ -23,6 +23,9 @@
   </div>
 </section>
 
+<!-- Adding the Poppins font from Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 /* ===== tokens ===== */
 .bioma-hero{
@@ -37,6 +40,7 @@
   color:var(--text);
   padding:clamp(24px,6vw,56px) 16px;
   overflow:hidden;
+  font-family: 'Poppins', sans-serif; /* Set Poppins as the font */
 }
 .bioma-wrap{
   max-width:1200px;
@@ -118,26 +122,26 @@
   .bioma-visual{ order:2; min-height:clamp(240px,48vw,420px); }
   .bioma-copy{ order:1; }
 }
+
 /* === Fix CTA width on small screens === */
 @media (max-width: 620px){
   .bioma-copy .cta{
-    display: block;              /* stop inline width quirks */
+    display: block;
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box;      /* include padding in width */
-    padding: 14px 16px;          /* a bit tighter side padding */
+    box-sizing: border-box;
+    padding: 14px 16px;
     text-align: center;
-    white-space: nowrap;         /* prevent wrap-caused height jump */
-    margin-inline: 0;            /* no side overflow from margins */
+    white-space: nowrap;
+    margin-inline: 0;
   }
-  .bioma-copy .cta span{ display: inline; } /* remove flex gap effect */
+  .bioma-copy .cta span{ display: inline; }
 }
 
 /* Extra-small phones: slightly smaller text so it never overflows */
 @media (max-width: 380px){
   .bioma-copy .cta{ font-size: 0.95rem; }
 }
-
 
 /* ===== small phones ===== */
 @media (max-width:620px){
@@ -149,7 +153,7 @@
   .bioma-copy .cta{ width:100%; justify-content:center; padding:14px 16px; }
   .bioma-visual{ min-height: clamp(200px,54vw,360px); }
   .bioma-visual .product{
-    background-position:center right 0;        /* keep bottle visible */
+    background-position:center right 0;
   }
   .bioma-visual .product::before{ opacity:.85; }
   .bioma-visual .product::after{ opacity:.9; }
@@ -164,6 +168,6 @@
   .bioma-visual{ min-height: 200px; }
   .bioma-visual .product{ background-position:center right -10px; }
   .bioma-visual .product::before,
-  .bioma-visual .product::after{ opacity:.6; }  /* reduce clutter */
+  .bioma-visual .product::after{ opacity:.6; }
 }
 </style>
