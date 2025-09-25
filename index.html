@@ -1,5 +1,4 @@
-<!-- Bioma hero (responsive) -->
-<section class="bioma-hero">
+<div class="bioma-hero">
   <div class="bioma-wrap">
     <div class="bioma-col bioma-copy">
       <h1>Wir haben etwas für dich!</h1>
@@ -14,136 +13,70 @@
       </ul>
 
       <p class="foot">Lass uns das Quiz abschließen, um deine Ergebnisse zu finalisieren.</p>
-      <a class="cta" href="https://keen-thrush-tread.heyflow.site/bioma#screen-12a29256">Weiter <span>→</span></a>
+      <a class="cta"
+         href="https://keen-thrush-tread.heyflow.site/bioma#screen-12a29256"
+         data-hf-screen="12a29256"
+         target="_top">Weiter <span>→</span></a>
     </div>
 
     <div class="bioma-col bioma-visual" aria-hidden="true">
       <div class="product"><span class="shadow"></span></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Adding the Poppins font from Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== tokens ===== */
 .bioma-hero{
   --bg:#5f7f78; --text:#fff; --muted:rgba(255,255,255,.87);
   --cta-bg:#0f0f0f; --cta-fg:#fff; --cta-bg-hover:#1a1a1a;
-  --hero-img-url:url('https://bioma.health/cdn-cgi/image/format=auto,width=3840/Images/Quiz/StyleUplift/we_got_you-green.webp');
 }
+.bioma-hero{ background:var(--bg); color:var(--text); padding:clamp(24px,6vw,56px) 16px; overflow:hidden; font-family:'Poppins',sans-serif; }
+.bioma-wrap{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:clamp(24px,6vw,56px); }
 
-/* ===== base layout ===== */
-.bioma-hero{
-  background:var(--bg);
-  color:var(--text);
-  padding:clamp(24px,6vw,56px) 16px;
-  overflow:hidden;
-  font-family: 'Poppins', sans-serif; /* Set Poppins as the font */
-}
-.bioma-wrap{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1.05fr 1fr;
-  align-items:center;
-  gap:clamp(24px,6vw,56px);
-}
-
-/* ===== copy ===== */
 .bioma-copy{ max-width:640px; }
-.bioma-copy h1{
-  font-size:clamp(26px,4.2vw,56px);
-  line-height:1.08;
-  margin:0 0 8px;
-  font-weight:700;
-}
-.bioma-copy h2{
-  font-size:clamp(16px,2.1vw,28px);
-  font-weight:700;
-  line-height:1.28;
-  color:var(--muted);
-  margin:0 0 18px;
-}
+.bioma-copy h1{ font-size:clamp(26px,4.2vw,56px); line-height:1.08; margin:0 0 8px; font-weight:700; }
+.bioma-copy h2{ font-size:clamp(16px,2.1vw,28px); font-weight:700; line-height:1.28; color:var(--muted); margin:0 0 18px; }
 .bioma-copy .lead{ color:var(--muted); margin:0 0 10px; }
 .bioma-copy .checks{ list-style:none; padding:0; margin:0 0 16px; }
-.bioma-copy .checks li{
-  position:relative; padding-left:26px; margin:7px 0; color:var(--text);
-  hyphens:auto; word-break:break-word;
-}
-.bioma-copy .checks li::before{
-  content:"✓"; position:absolute; left:0; top:0; line-height:1;
-  transform:translateY(2px); color:#fff; font-weight:700;
-}
+.bioma-copy .checks li{ position:relative; padding-left:26px; margin:7px 0; color:var(--text); hyphens:auto; word-break:break-word; }
+.bioma-copy .checks li::before{ content:"✓"; position:absolute; left:0; top:0; line-height:1; transform:translateY(2px); color:#fff; font-weight:700; }
 .bioma-copy .foot{ color:var(--muted); margin:0 0 20px; }
-
-/* CTA */
-.bioma-copy .cta{
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--cta-bg); color:var(--cta-fg);
-  padding:14px 20px; border-radius:10px; text-decoration:none;
-  font-weight:700; box-shadow:0 8px 20px rgba(0,0,0,.18);
-}
+.bioma-copy .cta{ display:inline-flex; align-items:center; gap:10px; background:var(--cta-bg); color:var(--cta-fg); padding:14px 20px; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 8px 20px rgba(0,0,0,.18); }
 .bioma-copy .cta:hover{ background:var(--cta-bg-hover); }
 .bioma-copy .cta span{ font-size:1.05em; }
 
-/* ===== visual ===== */
 .bioma-visual{ position:relative; min-height:clamp(280px,40vw,520px); }
 .bioma-visual .product{
   position:relative; width:100%; height:100%;
-  background:var(--hero-img-url) right center/contain no-repeat;
+  background-position:right center;
+  background-repeat:no-repeat;
+  background-size:contain;
+  /* direct URL here (no CSS var) */
+  background-image:url('https://bioma.health/cdn-cgi/image/format=auto,width=3840/Images/Quiz/StyleUplift/we_got_you-green.webp');
 }
+
 .bioma-visual .product::before,
 .bioma-visual .product::after{
   content:""; position:absolute; border-radius:50%;
   background:radial-gradient(120% 120% at 30% 30%,#87b5ad 0%,#5c7f78 60%,rgba(0,0,0,.2) 100%);
   filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));
 }
-.bioma-visual .product::before{
-  width:clamp(80px,18vw,180px); height:clamp(80px,18vw,180px);
-  right:clamp(20px,3vw,40px); top:clamp(20px,6vw,120px);
-}
-.bioma-visual .product::after{
-  width:clamp(26px,5vw,60px); height:clamp(26px,5vw,60px);
-  right:clamp(0px,2vw,24px); bottom:clamp(30px,6vw,90px);
-}
-.bioma-visual .shadow{
-  position:absolute; left:50%; bottom:clamp(0px,1vw,16px);
-  transform:translateX(-5%); width:clamp(160px,40vw,420px);
-  height:clamp(20px,4vw,46px);
-  background:radial-gradient(60% 80% at 50% 50%,rgba(0,0,0,.35),transparent 70%);
-  filter:blur(2px); opacity:.5; pointer-events:none;
-}
+.bioma-visual .product::before{ width:clamp(80px,18vw,180px); height:clamp(80px,18vw,180px); right:clamp(20px,3vw,40px); top:clamp(20px,6vw,120px); }
+.bioma-visual .product::after{ width:clamp(26px,5vw,60px); height:clamp(26px,5vw,60px); right:clamp(0px,2vw,24px); bottom:clamp(30px,6vw,90px); }
+.bioma-visual .shadow{ position:absolute; left:50%; bottom:clamp(0px,1vw,16px); transform:translateX(-5%); width:clamp(160px,40vw,420px); height:clamp(20px,4vw,46px); background:radial-gradient(60% 80% at 50% 50%,rgba(0,0,0,.35),transparent 70%); filter:blur(2px); opacity:.5; pointer-events:none; }
 
-/* ===== tablet & down ===== */
 @media (max-width:980px){
   .bioma-wrap{ grid-template-columns:1fr; gap:24px; }
   .bioma-visual{ order:2; min-height:clamp(240px,48vw,420px); }
   .bioma-copy{ order:1; }
 }
-
-/* === Fix CTA width on small screens === */
 @media (max-width: 620px){
-  .bioma-copy .cta{
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 14px 16px;
-    text-align: center;
-    white-space: nowrap;
-    margin-inline: 0;
-  }
-  .bioma-copy .cta span{ display: inline; }
+  .bioma-copy .cta{ display:block; width:100%; max-width:100%; box-sizing:border-box; padding:14px 16px; text-align:center; white-space:nowrap; margin-inline:0; }
+  .bioma-copy .cta span{ display:inline; }
 }
-
-/* Extra-small phones: slightly smaller text so it never overflows */
-@media (max-width: 380px){
-  .bioma-copy .cta{ font-size: 0.95rem; }
-}
-
-/* ===== small phones ===== */
+@media (max-width: 380px){ .bioma-copy .cta{ font-size:.95rem; } }
 @media (max-width:620px){
   .bioma-hero{ padding:28px 18px; }
   .bioma-copy{ max-width:540px; }
@@ -152,14 +85,10 @@
   .bioma-copy .checks li{ padding-left:22px; font-size:clamp(13px,3.7vw,16px); }
   .bioma-copy .cta{ width:100%; justify-content:center; padding:14px 16px; }
   .bioma-visual{ min-height: clamp(200px,54vw,360px); }
-  .bioma-visual .product{
-    background-position:center right 0;
-  }
+  .bioma-visual .product{ background-position:center right 0; }
   .bioma-visual .product::before{ opacity:.85; }
   .bioma-visual .product::after{ opacity:.9; }
 }
-
-/* ===== extra small (≤400px) ===== */
 @media (max-width:400px){
   .bioma-hero{ padding:24px 14px; }
   .bioma-copy h1{ font-size:22px; }
@@ -171,3 +100,41 @@
   .bioma-visual .product::after{ opacity:.6; }
 }
 </style>
+
+<script>
+(function(){
+  var root = document.currentScript.previousElementSibling.previousElementSibling;
+  var cta  = root && root.querySelector('.bioma-hero .cta');
+  if(!cta) return;
+
+  function getHF(){
+    try{
+      if (window.heyflow && window.heyflow.api && window.heyflow.api.v1) return window.heyflow.api.v1;
+      if (window.__HEYFLOW__ && window.__HEYFLOW__.flowAPI && window.__HEYFLOW__.flowAPI.v1) return window.__HEYFLOW__.flowAPI.v1;
+      if (window.__hfFlow && window.__hfFlow.v1) return window.__hfFlow.v1;
+    }catch(e){}
+    return null;
+  }
+  function getScreenId(a){
+    var id = a.getAttribute('data-hf-screen');
+    if (id) return String(id).replace(/^screen-/, '');
+    var m = (a.getAttribute('href')||'').match(/#screen-([A-Za-z0-9]+)/);
+    return m ? m[1] : null;
+  }
+
+  cta.addEventListener('click', function(e){
+    var api = getHF();
+    if (api && api.navigation){
+      e.preventDefault();
+      var target = getScreenId(cta);
+      if (target && typeof api.navigation.goTo === 'function'){ api.navigation.goTo(target); return; }
+      if (typeof api.navigation.goNext === 'function'){ api.navigation.goNext(); return; }
+    }
+    try{
+      e.preventDefault();
+      if (window.top && window.top !== window) window.top.location.href = cta.href;
+      else window.location.href = cta.href;
+    }catch(_e){}
+  });
+})();
+</script>
