@@ -1,4 +1,4 @@
-<div class="bioma-hero">
+<div class="bioma-hero"> 
   <div class="bioma-wrap">
     <div class="bioma-col bioma-copy">
       <h1>Wir haben etwas für dich!</h1>
@@ -12,10 +12,21 @@
       </ul>
 
       <p class="foot">Lass uns das Quiz abschließen, um deine Ergebnisse zu finalisieren.</p>
+
+      <!-- CTA with label + spinner behind + round arrow icon -->
       <a class="cta"
          href="https://keen-thrush-tread.heyflow.site/bioma#screen-12a29256"
          data-hf-screen="12a29256"
-         target="_top">Weiter <span>→</span></a>
+         target="_top">
+        <span class="cta__label">Weiter</span>
+        <span class="cta__icon" aria-hidden="true">
+          <!-- circular arrow icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="11" fill="white"/>
+            <path d="M10 7l5 5-5 5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
     </div>
 
     <div class="bioma-col bioma-visual" aria-hidden="true">
@@ -24,7 +35,8 @@
   </div>
 </div>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font: Lexend -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   /* Tokens */
@@ -39,7 +51,8 @@
     color:var(--text);
     padding:clamp(24px,6vw,56px) 16px;
     overflow:hidden;
-    font-family:'Poppins',sans-serif;
+    font-family:'Lexend',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+    letter-spacing:0;
   }
   .bioma-wrap{
     max-width:1200px;
@@ -51,18 +64,20 @@
   }
   .bioma-copy{ max-width:640px; }
 
-  /* H1: fits on one line on desktop, wraps on small screens */
+  /* Headings */
   .bioma-copy h1{
-    margin:0 0 8px; font-weight:700; line-height:1.06;
-    font-size:clamp(22px,3.6vw,36px);
+    margin:0 0 8px;
+    font-weight:400;
+    line-height:1.05;
+    font-size:clamp(26px,4vw,44px);
+    letter-spacing:-.01em;
   }
-  @media (min-width:980px){
-    .bioma-copy h1{ white-space:nowrap; }
-  }
+  @media (min-width:980px){ .bioma-copy h1{ white-space:nowrap; } }
 
   .bioma-copy h2{
     font-size:clamp(16px,2.1vw,28px);
-    font-weight:700; line-height:1.28;
+    font-weight:400;
+    line-height:1.28;
     color:var(--muted);
     margin:0 0 18px;
   }
@@ -71,29 +86,57 @@
   /* Checks */
   .bioma-copy .checks{ list-style:none; padding:0; margin:0 0 16px; }
   .bioma-copy .checks li{
-    position:relative; padding-left:26px; margin:7px 0; color:var(--text);
+    position:relative; padding-left:28px; margin:8px 0; color:var(--text);
     hyphens:auto; word-break:break-word;
+    font-weight:600;
   }
   .bioma-copy .checks li::before{
     content:"✓"; position:absolute; left:0; top:0; line-height:1;
-    transform:translateY(2px); color:#fff; font-weight:700;
+    transform:translateY(2px); color:#fff; font-weight:800;
   }
-  .bioma-copy .foot{ color:var(--muted); margin:0 0 20px; }
+  .bioma-copy .foot{ color:var(--muted); margin:0 0 24px; }
 
-  /* CTA — larger on desktop */
+  /* CTA — shorter + spinner shows only on click */
   .bioma-copy .cta{
-    display:inline-flex; align-items:center; gap:10px;
+    position:relative;
+    display:inline-flex; align-items:center; gap:12px;
     background:var(--cta-bg); color:var(--cta-fg);
-    padding:12px 18px; border-radius:12px; text-decoration:none;
-    font-weight:700; box-shadow:0 8px 20px rgba(0,0,0,.18);
-    transition:background .15s ease, transform .1s ease;
-    font-size:clamp(15px,1.6vw,18px);
+    padding:16px 66px;              /* shorter */
+    border-radius:10px; text-decoration:none;
+    font-weight:800; box-shadow:0 10px 26px rgba(0,0,0,.22);
+    transition:background .15s ease, transform .1s ease, box-shadow .15s ease, opacity .15s ease;
+    font-size:clamp(14px,1.8vw,19px);
   }
   @media (min-width:980px){
-    .bioma-copy .cta{ padding:16px 26px; }
+    .bioma-copy .cta{ padding:14px 66px; }  /* shorter on desktop */
   }
-  .bioma-copy .cta:hover{ background:var(--cta-bg-hover); transform:translateY(-1px); }
-  .bioma-copy .cta span{ font-size:1.05em; }
+
+  /* Rolling loader (hidden by default) */
+  .bioma-copy .cta::before{
+    content:"";
+    position:absolute; left:50%; top:50%;
+    width:28px; height:28px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,.28);
+    border-top-color:transparent;
+    animation:spin 1s linear infinite;
+    pointer-events:none;
+    filter:drop-shadow(0 1px 0 rgba(0,0,0,.15));
+    opacity:0; visibility:hidden;
+  }
+  .bioma-copy .cta.is-loading::before{
+    opacity:1; visibility:visible;
+  }
+  .bioma-copy .cta .cta__label{ position:relative; z-index:2; transition:opacity .15s ease; }
+  .bioma-copy .cta.is-loading .cta__label{ opacity:.9; }
+  .bioma-copy .cta .cta__icon{
+    display:inline-grid; place-items:center;
+    width:28px; height:28px; flex:0 0 28px;
+    border-radius:999px; background:#fff; z-index:2;
+  }
+
+  @keyframes spin{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
 
   /* Visual */
   .bioma-visual{ position:relative; min-height:clamp(280px,40vw,520px); }
@@ -133,11 +176,7 @@
   @media (max-width:620px){
     .bioma-hero{ padding:28px 18px; }
     .bioma-copy{ max-width:540px; }
-    .bioma-copy .cta{ display:block; width:100%; box-sizing:border-box; text-align:center; padding:14px 16px; }
-    .bioma-visual{ min-height:clamp(200px,54vw,360px); }
-    .bioma-visual .product{ background-position:center right 0; }
-    .bioma-visual .product::before{ opacity:.85; }
-    .bioma-visual .product::after{ opacity:.9; }
+    .bioma-copy .cta{ display:block; width:100%; text-align:center; }
   }
   @media (max-width:400px){
     .bioma-hero{ padding:24px 14px; }
@@ -150,10 +189,17 @@
 
 <script>
   (function(){
-    var root = document.currentScript.previousElementSibling.previousElementSibling;
+    var root = document.currentScript.previousElementSibling;
     if(!root) return;
+    while(root && !root.classList?.contains('bioma-hero')) root = root.previousElementSibling;
+    if(!root) root = document.querySelector('.bioma-hero');
+    if(!root) return;
+
     var cta = root.querySelector('.bioma-hero .cta');
     if(!cta) return;
+
+    // per-button timing via data attribute, default 900ms
+    var LOADING_MS = parseInt(cta.getAttribute('data-loading-ms') || '900', 10);
 
     function getHF(){
       try{
@@ -169,21 +215,34 @@
       var m = (a.getAttribute('href')||'').match(/#screen-([\w-]+)/);
       return m ? m[1] : null;
     }
-
-    cta.addEventListener('click', function(e){
+    function navigate(){
       var api = getHF();
+      var target = getScreenId(cta);
       if(api && api.navigation){
-        e.preventDefault();
-        var target = getScreenId(cta);
         if (target && typeof api.navigation.goTo === 'function'){ api.navigation.goTo(target); return; }
         if (typeof api.navigation.goNext === 'function'){ api.navigation.goNext(); return; }
       }
-      // Fallback (e.g., preview outside Heyflow)
       try{
-        e.preventDefault();
         if (window.top && window.top !== window) window.top.location.href = cta.href;
         else window.location.href = cta.href;
       }catch(_e){}
+    }
+
+    cta.addEventListener('click', function(e){
+      e.preventDefault();
+      if (cta.classList.contains('is-loading')) return; // guard double clicks
+      cta.classList.add('is-loading');
+      cta.setAttribute('aria-busy','true');
+      cta.style.pointerEvents = 'none';
+
+      setTimeout(function(){
+        navigate();
+        setTimeout(function(){
+          cta.classList.remove('is-loading');
+          cta.removeAttribute('aria-busy');
+          cta.style.pointerEvents = '';
+        }, 250);
+      }, Math.max(0, LOADING_MS));
     });
   })();
 </script>
