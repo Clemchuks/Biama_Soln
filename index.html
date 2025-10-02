@@ -120,6 +120,67 @@
     .bioma-copy{ max-width:540px; }
     .bioma-copy .cta{ display:block; width:100%; text-align:center; }
   }
+  
+@media (max-width: 620px){
+  .bioma-copy .cta{
+    display:block;
+    width:84%;           
+    max-width:320px;      
+    min-width:220px;      
+    margin:0 auto;       
+    padding:14px 20px;    
+    text-align:center;
+    justify-content:center;
+  }
+}
+
+/* Extra-small phones: tighten the CTA */
+@media (max-width: 360px){
+  .bioma-copy .cta{
+    width:100%;
+    min-width:0;                
+    padding:8px 14px;
+    height:48px;               
+    gap:10px;
+    font-size:14px;
+    border-radius:9px;
+  }
+  .bioma-copy .cta .cta__icon{
+    width:24px; height:24px; flex:0 0 24px;
+  }
+}
+
+/* Ultra-small (≤300px): compact mode */
+@media (max-width: 300px){
+  .bioma-copy .cta{
+    padding:8px 10px;
+    height:44px;                 /* still accessible */
+    gap:8px;
+    font-size:13px;
+    letter-spacing:0;
+  }
+  .bioma-copy .cta .cta__icon{
+    width:20px; height:20px; flex:0 0 20px;
+    border-radius:8px;
+  }
+  /* shrink the loading spinner so it doesn’t overlap */
+  .bioma-copy .cta::before{
+    width:22px; height:22px;
+    border-width:2px;
+  }
+  /* optional: make button full width on the narrowest screens */
+  .bioma-copy .cta{ display:block; text-align:center; }
+}
+
+/* Even narrower on very small phones */
+@media (max-width: 400px){
+  .bioma-copy .cta{
+    width:88%;
+    max-width:280px;
+    padding:13px 18px;
+  }
+}
+
   @media (max-width:400px){
     .bioma-hero{ padding:24px 14px; }
     .bioma-visual{ min-height:200px; }
