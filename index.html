@@ -38,7 +38,7 @@
 
 <style>
   .bioma-hero{
-    --bg:#5f7f78; --text:#fff; --muted:rgba(255,255,255,.87);
+    --bg:#4e7874; --text:#fff; --muted:rgba(255,255,255,.87);
     --cta-bg:#0f0f0f; --cta-fg:#fff; --cta-bg-hover:#1a1a1a;
     background:var(--bg); color:var(--text);
     padding:clamp(24px,6vw,56px) 16px; overflow:hidden;
@@ -50,9 +50,9 @@
     gap:clamp(24px,6vw,56px);
   }
   .bioma-copy{ max-width:640px; }
-  .bioma-copy h1{ margin:0 0 8px; font-weight:400; line-height:1.05; font-size:clamp(26px,4vw,44px); letter-spacing:-.01em; }
+  .bioma-copy h1{ margin:0 0 8px; font-weight:500; line-height:1.25; font-size:clamp(26px,4vw,38px); letter-spacing:-.01em; color:var(--text);}
   @media (min-width:980px){ .bioma-copy h1{ white-space:nowrap; } }
-  .bioma-copy h2{ font-size:clamp(16px,2.1vw,28px); font-weight:400; line-height:1.28; color:var(--muted); margin:0 0 18px; }
+  .bioma-copy h2{ font-size:clamp(16px,2.1vw,28px); font-weight:400; line-height:1.08; color:var(--text); margin:0 0 18px; }
   .bioma-copy .lead{ color:var(--muted); margin:0 0 12px; }
   .bioma-copy .checks{ list-style:none; padding:0; margin:0 0 16px; }
   .bioma-copy .checks li{ position:relative; padding-left:28px; margin:8px 0; color:var(--text); font-weight:600; }
@@ -94,14 +94,14 @@
       url('https://assets.prd.heyflow.com/users/HNz0H1gcjsZMtuvuh7JXhCuqRqJ3/dec8b520-a7b0-44e4-8016-803c363f3720/original.jpeg') type('image/jpeg')
     );
   }
-  .product::before,
+   /* .product::before,
   .product::after{
     content:""; position:absolute; border-radius:50%;
     background:radial-gradient(120% 120% at 30% 30%,#87b5ad 0%,#5c7f78 60%,rgba(0,0,0,.2) 100%);
     filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));
   }
   .product::before{ width:clamp(80px,18vw,180px); height:clamp(80px,18vw,180px); right:clamp(20px,3vw,40px); top:clamp(20px,6vw,120px); }
-  .product::after { width:clamp(26px,5vw,60px); height:clamp(26px,5vw,60px); right:clamp(0px,2vw,24px); bottom:clamp(30px,6vw,90px); }
+  .product::after { width:clamp(26px,5vw,60px); height:clamp(26px,5vw,60px); right:clamp(0px,2vw,24px); bottom:clamp(30px,6vw,90px); }  */
   .bioma-visual .shadow{
     position:absolute; left:50%; bottom:clamp(0px,1vw,16px);
     transform:translateX(-5%); width:clamp(160px,40vw,420px); height:clamp(20px,4vw,46px);
